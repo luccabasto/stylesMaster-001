@@ -3,33 +3,35 @@
 
     Praticando e aprendendo técnicas com o SCSS e CSS.
 
- <p> 
     A Tarefa da vez consiste em criar um Twisted utilizando Sass e CSS sem uso de lib para componentes.
- </p>
 
-Nesse exemplo consegui executar utilizando as duas ferramentas, css puro e loop no sass a seguir vou deixar anotado os pontos fortes que encontrei em cada uma. 
+    Nesse exemplo consegui executar utilizando as duas ferramentas, css puro e loop no sass a seguir vou deixar anotado os pontos fortes que encontrei em cada uma. 
+
+[Solucionando com Sass/Scss](#scss)<br>
+[Solucionado com CSS puro](#css)
+
+
 
 #### SCSS
-
 * Loop For:<br>
      Seguindo a lógica de um loop padrão com a atenção no momento da expressão/cálculo de como as cores e tamanhos são calculados.
 
 <code>
-    $color:70 + ($i * 8); //Calculando a cor baseada no índice
-    <br>
-    $size: (270 - (10 * $i)); // Calculando o tamanho baseado no índice.
-</code>
-<br>
-<br>
 
-#### $color: 70 + ($i * 8) - Essa linha esta calculando a cor da borda de cada onda (class .wave) baseada no índice do loop.
+    $color:70 + ($i * 8); //Calculando a cor baseada no índice
+    
+    $size: (270 - (10 * $i)); // Calculando o tamanho baseado no índice.
+
+</code>
+
+    $color: 70 + ($i * 8) - Essa linha esta calculando a cor da borda de cada onda (class .wave) baseada no índice do loop.
 <br>
 Fórmula: 
 
  1. $i é o índice atual do loop criado `@for $i from 1 through 20` <br>(ao ler o código entederá o motivo da largura do loop ser até 20).
  
  2. Multiplicação ($i * 8): Multiplicando o índice por 8 consigo criar um incremento progressivo de cor.
-<br>
+
     2.1 Adição (70 +): Adicionando 70 ao resultado da multiplicação.
 
 Portanto, a cor de cada onda será: 
@@ -40,8 +42,8 @@ Portanto, a cor de cada onda será:
 
 Com isso tenho como resultado uma gama de cores de 78 a 230 (para `i` de 1 a 20); Ok meio complicado de entender só ela escrita mas ao visualizar isso em código vai ver que dessa forma cria um efeito visual em que as cores das bordas ficam progressivamente mais claras. 
 
-#### $size: (210 - (10 * $i)) - Essa linha esta calculando o tamanho de cada onda, também baseado no índice do loop. 
-<br>
+    $size: (210 - (10 * $i)) - Essa linha esta calculando o tamanho de cada onda, também baseado no índice do loop. 
+
 Fórmula: 
 
 1. $i é o índice atual do loop criado `@for $i from 1 through 20`<br>
