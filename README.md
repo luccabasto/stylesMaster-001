@@ -10,7 +10,18 @@
 [Solucionando com Sass/Scss](#scss)<br>
 [Solucionado com CSS puro](#css)
 
-
+<div>
+    <p>Alinhamento padrão: </p>
+    <code>
+        top:50%; // Centralizando o elemento verticalmente.
+        left: 50%; // Centralizando o elemento horizontalmente.
+        width: 400px;
+        height: 400px;
+        margin-top: -200px; // Movendo para cima metade da altura para centralizar.
+        margin-left: -200px; // Movendo para a esquerda metade da largura para centralizar.
+    </code>
+    <p>Alterado apenas para melhor exibição dos dois elementos.</p>
+</div>
 
 #### SCSS
 * Loop For:<br>
@@ -67,3 +78,65 @@ Isso resulta em tamanhos de 200px a 10px (para `i` de 1 a 20), criando um efeito
     Meu frame possui 400px, logo a formula do meu $size seria:
 
     $size: (400- (20 * $i)) - As ondas vão diminuir de tamanhos progressivamente de 400px a 20px, ocupando todo o frame incial e mantendo um efeito de ondas progressivamente menores. 
+;
+
+### CSS
+
+Utilizando CSS padrão, a estrutura HTML segue o mesmo modelo entretanto para conseguir atingir o mesmo objetivo devemos desenvolver o Twisted Pyramid em cada div - (.waves)
+
+obs: Para conseguir exibir os dois exemplos, editei o posicionamento do frame na tela, nada que altere o resultado apenas sua posição. 
+
+* Definindo a estrutura default das waves.
+    1. - Seguindo uma ordem da waves-1 à 20, vinculamos o z-index em sua respesctiva div/wave
+        - waves-1: z-index-1;
+        - waves-2: z-index-2; 
+        - e assim por diante...
+
+    2. - Defindo um padrão de Width e Heigh: 
+        - Nesse exemplo o começo com o tamanho de ambos sendo 200px e sendo subtraído 10px a cada waves: 
+            - w/h: 200px  (waves-1); w/h: 190px (waves-2); 
+                w/h: 180px (waves-3); 
+            Assim por diante e criando um padrão de tamanho. 
+
+    3. - Definindo o padrão de Top e Left:
+        - Seguindo a mesma lógica do 2.(W/H) começamos a definir um valor para o Top e Left de cada waves para a centralização, e a cada waves adicionamos 5px:
+            - t/l: 100px (waves-1); t/l: 105px (waves-2);
+            t/l: 115px (waves-3);
+
+            Assim por diante e criando o padrão para que conforme adicionamos as waves, ela vai se afunilando ao fundo criando o efeito de profundidade. 
+
+    4. - Escala de COR:
+        - Para tudo fazer sentido, precisamos incluir uma gama de cores correspondentes e gerar o efeito de degradê. Nesse exemplo como temos 20 waves precisamos de uma cartela com 20tons conversantes. 
+            - Começando do mais escuto pro mais claro, ou ao contrário.
+
+            - Aqui essas questão é bem situacional, varia conforme o objetivo visual que deseja atingir. 
+
+    5. - Principios da animação: 
+
+        - Aqui configuramos como a nossa animação irá perfmorar, seguindo padrão de...
+            - denifir o nome (rotate) - duração (2s) delay (0.5666666...s) nesse caso é cálculado baseado nos segundos de dalay e fracionado em três partes: 
+                - Principal: 0.6s
+                - Fração1: 0.6333333333s 
+                - Fração2: 0.6666666667s
+                - Cada Waves recebe seu prórpio delay/fração e não se repente.
+            - Direção da sua animação (alternate) - Modo operante (infinite)
+            
+            - Claro que não regra e se aplica apenas para esse desafio entretanto a lógica se mantém para os outros, variando a sua construção.    
+    
+        animation: name duration timing-function delay iteration-count direction fill-mode;
+
+    6. - Por fim, ajustando os keyframes e como eles irão atuar na sua animação: 
+
+        <code>
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg) translate3d(0,0,0);
+                }
+                to {
+                    transform: rotate(360deg) translate3d(0,0,0);
+                }
+            }
+        </code>
+
+    - Sinceramente de toda a configuração essa é a parte mais tranquila e onde de fato vai fazer a sua animação funcionar.
+---------------

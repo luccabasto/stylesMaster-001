@@ -2,10 +2,11 @@
 
 import '@/app/styles/num01.scss'
 
-export const TwistedPyramid = () => {
+export const TwistedPyramid_sass = () => {
   return (
       <div>
         <div className='frame'>
+        <h3>Utilizando o SASS - Desenvolvendo em Loop</h3>
           <div className='wave wave-1'></div>
           <div className='wave wave-2'></div>
           <div className='wave wave-3'></div>
@@ -27,9 +28,6 @@ export const TwistedPyramid = () => {
           <div className='wave wave-19'></div>
           <div className='wave wave-20'></div>
           {/**Caso queira adicionar algum texto é aqui dentro*/}
-        </div>
-        <div>Oi
-          
         </div>
       </div>
   )
